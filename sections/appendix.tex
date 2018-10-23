@@ -1,0 +1,69 @@
+
+
+%%================================================= PAGE SETUP==============================================
+    \renewcommand{\thesubsection}{\Alph{subsection}}                  %% Removes section number from subsection appendix
+
+    \newcommand{\fakesection}[1]{%                          %% Creates a fake section for the TOC
+      \par\refstepcounter{section}                               %% Increase section counter
+      \sectionmark{#1}                                           %% Add section mark (header)
+      \addcontentsline{toc}{section}{#1}}                         %% Add section to ToC
+
+    \newcommand{\fakesubsection}[1]{%                                       %% Creates a fake subsection for the TOC
+      \par\refstepcounter{subsection}                                         %% Increase section counter
+      \sectionmark{#1}                                                           %% Add section mark (header)
+      \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}#1}}  %% Add subsection to ToC
+
+    \titleformat{\subsection}                               %% Centering of the Appendix Titles
+      {\large\bfseries\centering}
+      {\thesection}{}{}
+%%================================================END PAGE SETUP============================================
+
+
+
+\fakesection{Appendices}                               %% Adds section to TOC but not the page
+
+
+%%----------------Appenix A
+  \fakesubsection{Field Protocol}                                  %% Adds subsection to TOC but not the page
+  \subsection*{Appendix A}\label{appendixA}                        %% Adds subsection to page but not the TOC
+
+    \renewcommand\thefigure{A.\arabic{figure}}                          %% Begins numbering the appendix figures with A
+    \setcounter{figure}{0}                                              %% Restarts the figure counter
+
+  \begin{figure}[!h]                                                       %% Field protocol photo
+      \includegraphics[width=.75\linewidth]{images/field_protocol}           %% Width, Image file BW
+      \caption{Example of filled-out field protocol for the choriotope composition.}              %% Figure Caption
+      \label{fig:field_protocol}                                            %% Figure label key
+  \end{figure}
+
+  \newpage                                                                %% End page
+
+
+
+%%-------------Appendix B
+  \fakesubsection{Taxon Lists}                                  %% Adds subsection to TOC but not the page
+  \subsection*{Appendix B}\label{appendixB}                     %% Adds subsection to Page but not the TOC
+
+
+    \renewcommand\thetable{B.\arabic{table}}                          %% Begins numbering the appendix figures with A
+    \setcounter{table}{0}                                              %% Restarts the figure counter
+
+
+  \begin{table}[h!]                                                             %% Taxa lists
+
+  \caption{Taxon lists for sampled sites.}                                      %% Table Caption
+     \begin{tabular}{ l r p{0.06\textwidth} l r }
+     \toprule
+     {   Ois}            &   {\scriptsize Ind. per m\textsuperscript{2}}  &   &
+     {   Maiergraben}    &   {\scriptsize Ind. per m\textsuperscript{2}}    \\
+     \hline
+     \hline
+     \multicolumn{2}{l}{\includegraphics[trim=0 0 0 -5,width=0.443\textwidth,valign=t]{images/taxa_list_ois}}
+       & &
+     \multicolumn{2}{r}{\includegraphics[trim=0 0 0 -5,width=0.443\textwidth,valign=t]{images/taxa_list_maiergraben}} \\
+      \end{tabular}
+      \label{tbl:taxa_list}
+
+  \end{table}
+
+  \newpage                                                                %% End page
